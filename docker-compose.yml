@@ -1,0 +1,6 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  web:
+    image: shaurm/nodejs-cloud:latest
+    ports:
+      - "443:1234"

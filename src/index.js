@@ -36,6 +36,9 @@ app.get("/error/:id", (req, res) => {
     res.send("error!");
 });
 
+app.get("/healthz", (req, res) => {
+    res.send("ok");
+});
 
 
 // start the Express server
