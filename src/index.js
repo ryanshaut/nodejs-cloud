@@ -13,7 +13,8 @@ app.get("/", (req, res) => {
     res.send({ message: "Hello world!" });
 });
 app.get("/ip", (req, res) => {
-    res.send({ ip: req.ip });
+    const ip = req.headers["x-forwarded-for"] || req.ip
+    res.send({ ip });
 });
 
 app.get("/region", (req, res) => {
