@@ -26,6 +26,7 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: dotnet/nbgv@1801854259a50d987aaa03b99b28cebf49faa779
         uses: dotnet/nbgv@v0.4.1
+        id: nbgv
         # with:
         #   # The path to the directory for which the version should be determined. This should be at or below the directory containing the version.json file. Default is repo root directory.
         #   path: # optional, default is .
@@ -42,6 +43,35 @@ jobs:
 
       - name: Echo semver
         run: "echo ${{ steps.nbgv.outputs }}"
+
+      - name: Echo 2
+        run: |
+          echo ${{ steps.nbgv.outputs.CloudBuildNumber }}
+          echo ${{ steps.nbgv.outputs.VersionFileFound }}
+          echo ${{ steps.nbgv.outputs.AssemblyVersion }}
+          echo ${{ steps.nbgv.outputs.AssemblyFileVersion }}
+          echo ${{ steps.nbgv.outputs.AssemblyInformationalVersion }}
+          echo ${{ steps.nbgv.outputs.PublicRelease }}
+          echo ${{ steps.nbgv.outputs.PrereleaseVersion }}
+          echo ${{ steps.nbgv.outputs.PrereleaseVersionNoLeadingHyphen }}
+          echo ${{ steps.nbgv.outputs.SimpleVersion }}
+          echo ${{ steps.nbgv.outputs.BuildNumber }}
+          echo ${{ steps.nbgv.outputs.VersionRevision }}
+          echo ${{ steps.nbgv.outputs.MajorMinorVersion }}
+          echo ${{ steps.nbgv.outputs.VersionMajor }}
+          echo ${{ steps.nbgv.outputs.VersionMinor }}
+          echo ${{ steps.nbgv.outputs.GitCommitId }}
+          echo ${{ steps.nbgv.outputs.GitCommitIdShort }}
+          echo ${{ steps.nbgv.outputs.GitCommitDate }}
+          echo ${{ steps.nbgv.outputs.VersionHeight }}
+          echo ${{ steps.nbgv.outputs.VersionHeightOffset }}
+          echo ${{ steps.nbgv.outputs.Version }}
+          echo ${{ steps.nbgv.outputs.BuildMetadataFragment }}
+          echo ${{ steps.nbgv.outputs.NuGetPackageVersion }}
+          echo ${{ steps.nbgv.outputs.ChocolateyPackageVersion }}
+          echo ${{ steps.nbgv.outputs.NpmPackageVersion }}
+          echo ${{ steps.nbgv.outputs.SemVer1 }}
+          echo ${{ steps.nbgv.outputs.SemVer2 }}
             
       -
         name: Login to DockerHub
