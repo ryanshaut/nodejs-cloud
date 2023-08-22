@@ -10,6 +10,9 @@ jobs:
   docker:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       -
         # Add support for more platforms with QEMU (optional)
         # https://github.com/docker/setup-qemu-action
