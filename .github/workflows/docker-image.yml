@@ -84,5 +84,10 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          image: shaurm/nodejs-cloud
-          tags: latest, ${{ steps.nbgv.outputs.SemVer2 }}
+          tags: latest
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ${{ steps.nbgv.outputs.SemVer2 }}
