@@ -92,8 +92,8 @@ jobs:
           images: ghcr.io/${{ github.repository }}
           tags: |
            latest
-           ${{ steps.date.outputs.date }}.${{ github.run_attempt }}
            ${{ steps.nbgv.outputs.SemVer2 }}
+           ${{github.ref_name}}-${{ steps.date.outputs.date }}.${{ github.run_attempt }}
 
       - uses: docker/build-push-action@v4.1.1
         with:
