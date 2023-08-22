@@ -44,6 +44,10 @@ jobs:
       - name: Echo semver
         run: "echo ${{ steps.nbgv.outputs }}"
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+
       - name: Echo 2
         run: |
           echo ${{ steps.nbgv.outputs.CloudBuildNumber }}
